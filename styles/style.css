@@ -1624,6 +1624,10 @@ img {
   color: var(--basic-extra-dark);
 }
 
+.control:hover .control__mark {
+  border-color: var(--basic-extra-light);
+}
+
 .control__mark {
   position: absolute;
   left: 0;
@@ -1631,6 +1635,7 @@ img {
   height: 16px;
   border: 1.5px solid var(--basic-extra-dark);
   border-radius: 50%;
+  transition: all 0.1s linear;
 }
 
 .control__input[type="radio"]:checked + .control__mark::before {
@@ -1643,6 +1648,10 @@ img {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background-color: var(--basic-extra-dark);
+}
+
+.control__input[type="radio"]:checked:hover + .control__mark::before {
+  background-color: var(--basic-extra-light);
 }
 
 .control__input[type="checkbox"] + .control__mark {
@@ -1660,7 +1669,21 @@ img {
   width: 16px;
   height: 16px;
   transform: translateY(-50%);
-  background: url("../images/icons/check-on.svg") no-repeat center center;
+  mask: url("../images/icons/check-on.svg") no-repeat center center;
+  -webkit-mask: url("../images/icons/check-on.svg") no-repeat center center;
+  background-color: var(--basic-extra-dark);
+}
+
+.control__input[type="checkbox"]:checked:hover + .control__mark::before {
+  background-color: var(--basic-extra-light);
+}
+
+.control__input:disabled + .control__mark {
+  opacity: 0.5;
+}
+
+.control__input:disabled + .control__mark::before {
+  opacity: 0.5;
 }
 
 .filter-group__list {
@@ -1740,10 +1763,35 @@ img {
   justify-content: center;
   padding: 2px 6px;
   min-width: 24px;
+  border-radius: 50px;
+}
+
+.pagination__link:focus {
+  outline: 1px solid var(--basic-extra-dark);
+  outline-offset: -1px;
+  background-color: var(--basic-extra-light-icon);
+}
+
+.pagination__link:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.pagination__link:focus-visible {
+  outline: 1px solid var(--basic-extra-dark);
+  outline-offset: -1px;
+  background-color: var(--basic-extra-light-icon);
+}
+
+.pagination__link:hover {
+  background-color: var(--basic-extra-light-hover);
+}
+
+.pagination__link:active {
+  outline: 1px solid var(--basic-extra-light);
+  background: var(--basic-extra-light-hover);
 }
 
 .pagination-current {
-  border-radius: 50px;
   background-color: var(--basic-extra-light);
 }
 
