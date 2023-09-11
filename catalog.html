@@ -13,13 +13,30 @@
     <div class="page-container">
       <!-- header -->
       <header class="header">
-        <nav class="nav page-nav">
+        <nav class="nav main-nav">
           <a class="logo" href="index.html">
             <img src="images/icons/logo.svg" alt="Логотип магазина Глейси" width="137" height="56">
           </a>
           <ul class="nav-menu list-reset">
-            <li class="nav-menu__item">
+            <li class="nav-menu__item nav-menu__item-catalog">
               <a class="nav-menu__link nav-menu__link-catalog link" href="#">Каталог</a>
+              <ul class="catalog-menu list-reset">
+                <li class="catalog-menu__item catalog-menu__item-new">
+                  <a class="catalog-menu__link catalog-menu__link-new link" href="#">Новинки</a>
+                </li>
+                <li class="catalog-menu__item">
+                  <a class="catalog-menu__link link" href="catalog.html">Сливочное</a>
+                </li>
+                <li class="catalog-menu__item">
+                  <a class="catalog-menu__link link" href="#">Щербеты</a>
+                </li>
+                <li class="catalog-menu__item">
+                  <a class="catalog-menu__link link" href="#">Фруктовый лед</a>
+                </li>
+                <li class="catalog-menu__item">
+                  <a class="catalog-menu__link link" href="#">Мелорин</a>
+                </li>
+              </ul>
             </li>
             <li class="nav-menu__item">
               <a class="nav-menu__link link" href="#">Доставка и оплата</a>
@@ -32,17 +49,80 @@
             <li class="nav-bar__item">
               <a class="nav-bar__link nav-bar__link-tel link" href="tel:+78005558628">+7 800 555-86-28</a>
             </li>
-            <li class="nav-bar__item">
+            <li class="nav-bar__item nav-bar__item-search">
               <button class="nav-bar__button" type="button">
                 <span class="visually-hidden">Поиск.</span>
               </button>
+              <form class="search" action="https://echo.htmlacademy.ru/" method="get">
+                <label class="search__label visually-hidden" for="search">Поиск по сайту.</label>
+                <input class="search__input" type="search" id="search" name="search" placeholder="Поиск по сайту">
+                <button class="visually-hidden" type="submit">Искать</button>
+                <button class="search-reset btn" type="reset">
+                  <span class="visually-hidden">Удалить текст.</span>
+                </button>
+              </form>
             </li>
-            <li class="nav-bar__item">
+            <li class="nav-bar__item nav-bar__item-login">
               <a class="nav-bar__link nav-bar__link-login link" href="#">Вход</a>
+              <form class="authorization" action="https://echo.htmlacademy.ru/" method="get">
+                <h2 class="authorization__title title">Личный кабинет</h2>
+                <label class="visually-hidden" for="login-mail">Введите ваш email</label>
+                <input class="authorization__input authorization__input-email input" type="email" name="email"
+                  id="login-mail" value="email@example.com" required>
+                <label class="visually-hidden" for="login-password">Введите ваш пароль</label>
+                <input class="authorization__input input" type="password" name="password" id="login-password"
+                  value="123456" required>
+                <div class="authorization-links">
+                  <a class="btn-pink link-login link" href="#">Войти</a>
+                  <a class="authorization__link link-password link" href="#">Забыли пароль?</a>
+                  <a class="authorization__link link-registration link" href="#">Регистрация</a>
+                </div>
+              </form>
             </li>
-            <li class="nav-bar__item">
-              <a class="nav-bar__link nav-bar__link-cart link" href="#">2 товара</a>
-              <a class="nav-bar__link cart-empty nav-bar__link-cart link" href="#">Нет товаров</a>
+            <!-- класс cart-empty-active у li покажет поповер пустой корзины -->
+            <li class="nav-bar__item nav-bar__item-cart">
+              <a class="nav-bar__link shopping-cart-btn nav-bar__link-cart link" href="#">2 товара</a>
+              <a class="nav-bar__link cart-empty-btn nav-bar__link-cart link nav-bar__link--active" href="#">Нет
+                товаров</a>
+              <div class="cart">
+                <h2 class="cart__title title">Корзина</h2>
+                <ul class="cart-product list-reset">
+                  <li class="cart-product__item">
+                    <img class="cart-product__img" src="images/catalog-img/raspberry.png" alt="Малинка" width="46"
+                      height="46">
+                    <h3 class="cart-product__title subtitle">Малинка</h3>
+                    <p class="cart-product__count descr">
+                      1 кг х 310 ₽
+                    </p>
+                    <p class="cart-product__price descr">310 ₽</p>
+                    <button class="cart-product__btn btn">
+                      <span class="visually-hidden">Убрать товар из корзины.</span>
+                    </button>
+                  </li>
+                  <li class="cart-product__item">
+                    <img class="cart-product__img" src="images/catalog-img/bubble-gum.png" alt="Бабл-гам" width="46"
+                      height="46">
+                    <h3 class="cart-product__title subtitle">Бабл-гам</h3>
+                    <p class="cart-product__count descr">
+                      1,5 кг х 320 ₽
+                    </p>
+                    <p class="cart-product__price descr">480 ₽</p>
+                    <button class="cart-product__btn btn">
+                      <span class="visually-hidden">Убрать товар из корзины.</span>
+                    </button>
+                  </li>
+                </ul>
+                <a class="cart__btn link btn-pink" href="#">
+                  Оформить заказ
+                </a>
+                <p class="cart-text descr">
+                  Итого:
+                  <span class="cart-text__price">790 ₽</span>
+                </p>
+              </div>
+              <div class="cart-empty">
+                <p class="cart-empty-descr descr">Ваша корзина пока пуста</p>
+              </div>
             </li>
           </ul>
         </nav>
@@ -420,7 +500,7 @@
         </ul>
         <ul class="footer-menu list-reset">
           <li class="footer-menu__item">
-            <a class="footer-menu__link footer-menu__link-current link" href="#">Для поставщиков</a>
+            <a class="footer-menu__link footer-menu__link-suppliers link" href="#">Для поставщиков</a>
           </li>
           <li class="footer-menu__item">
             <a class="footer-menu__link  link" href="#">Наши документы</a>
@@ -446,6 +526,7 @@
         </div>
       </footer>
     </div>
+    <script src="scripts/main.js"></script>
   </body>
 
 </html>
