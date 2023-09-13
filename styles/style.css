@@ -1789,20 +1789,33 @@ img {
   position: absolute;
   z-index: 1;
   left: 25px;
-  top: -13px;
+  top: 50%;
   width: 169px;
   padding: 10px 8px;
+  padding-left: 9px;
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
   border: 1px solid var(--basic-neutral);
   box-shadow: 0 4px 8px rgba(194, 194, 194, 0.2);
   background-color: var(--basic-white);
+  transform: translateY(-50%);
   display: none;
 }
 
 .tooltip-text::before {
   content: "";
+  position: absolute;
+  left: -7.5px;
+  top: 45%;
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--basic-neutral);
+  border-right: none;
+  border-bottom: none;
+  transform: translateY(-55%) rotate(-45deg);
+  background-color: var(--basic-white);
 }
 
 .tooltip-toggle:hover + .tooltip-text,

@@ -1,4 +1,4 @@
-// // каталог
+// каталог
 const buttonCatalog = document.querySelector('.nav-menu__link-catalog');
 const catalogMenu = document.querySelector('.catalog-menu');
 
