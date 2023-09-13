@@ -328,6 +328,7 @@ img {
 }
 
 .nav-menu__link {
+  display: block;
   padding: 8px 16px;
   border-radius: 30px;
   color: var(--basic-extra-dark);
@@ -387,7 +388,8 @@ img {
   z-index: 1;
   left: 1px;
   top: 36px;
-  width: 135px;
+  min-width: 135px;
+  max-width: 150px;
   padding: 8px 0;
   border-radius: 4px;
   background: var(--basic-extra-light);
@@ -472,6 +474,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  max-width: 440px;
   gap: 15px;
 }
 
@@ -891,6 +894,7 @@ img {
   display: grid;
   grid-template-columns: 48px 1fr 87px 16px;
   grid-template-rows: repeat(2, 1fr);
+  align-items: center;
   column-gap: 16px;
   row-gap: 4px;
 }
@@ -1031,7 +1035,7 @@ img {
 
 /* slider */
 .section-slider {
-  margin-bottom: 72px;
+  margin-bottom: 77px;
 }
 
 .slider {
@@ -1406,8 +1410,11 @@ img {
 }
 
 .catalog-item-wrapper {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: 132px 40px 24px 40px;
+  height: 100%;
+  padding: 134px 40px 24px 40px;
   border-radius: 8px;
   background: var(--basic-extra-light);
 }
@@ -1425,6 +1432,7 @@ img {
 }
 
 .catalog-item__descr {
+  flex-grow: 1;
   margin-bottom: 17px;
   text-align: center;
 }
@@ -1578,7 +1586,7 @@ img {
 }
 
 .new-blog {
-  max-width: 570px;
+  width: 570px;
   padding: 33px 235px 68px 32px;
   border-radius: 16px;
   background: var(--basic-white) url("../images/background/news-bg.jpg")
@@ -1593,7 +1601,7 @@ img {
 }
 
 .subscribe {
-  max-width: 570px;
+  width: 570px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1682,6 +1690,7 @@ img {
 .delivery-form {
   display: grid;
   grid-template-columns: 117px 1fr;
+  align-items: flex-end;
   column-gap: 16px;
   row-gap: 20px;
   padding: 40px;
@@ -1900,12 +1909,18 @@ img {
 
 .footer-menu {
   display: grid;
-  grid-template-columns: repeat(2, max-content);
-  width: 356px;
+  grid-template-columns: repeat(2, auto);
+  align-self: flex-start;
+  row-gap: 8px;
+  width: 360px;
+}
+
+.footer-menu__item {
+  padding-left: 25px;
+  line-height: 14px;
 }
 
 .footer-menu__link {
-  padding-left: 24px;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
@@ -1941,7 +1956,7 @@ img {
 .footer-menu__link-suppliers::before {
   content: "";
   position: absolute;
-  left: 0;
+  left: -23px;
   top: 2px;
   display: block;
   width: 16px;
@@ -1952,6 +1967,7 @@ img {
 .copyright-wrapper {
   display: flex;
   flex-direction: column;
+  width: 193px;
 }
 
 .copyright-text {
@@ -2367,7 +2383,7 @@ img {
   justify-self: end;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   flex-wrap: wrap;
   max-width: 175px;
 }

@@ -10,7 +10,8 @@ document.addEventListener('mouseup', (e) => {
 
   }
 
-  buttonCatalog.addEventListener('click', () => {
+  buttonCatalog.addEventListener('click', (evt) => {
+    evt.preventDefault();
     catalogMenu.classList.toggle('catalog-menu-opened');
     buttonCatalog.classList.toggle('nav-menu__link--active');
   })
@@ -42,7 +43,8 @@ document.addEventListener('mouseup', (e) => {
     searchButton.classList.remove('nav-bar__button--active');
   }
 
-  searchButton.addEventListener('click', () => {
+  searchButton.addEventListener('click', (evt) => {
+    evt.preventDefault();
     searchForm.classList.toggle('search-active');
     searchButton.classList.toggle('nav-bar__button--active');
   })
@@ -67,7 +69,8 @@ document.addEventListener('mouseup', (e) => {
     buttonLogin.classList.remove('nav-bar__link--active');
   }
 
-  buttonLogin.addEventListener('click', () => {
+  buttonLogin.addEventListener('click', (evt) => {
+    evt.preventDefault();
     authorization.classList.toggle('authorization-active');
     buttonLogin.classList.toggle('nav-bar__link--active');
   })
@@ -92,7 +95,8 @@ document.addEventListener('mouseup', (e) => {
     buttonCart.classList.remove('nav-bar__link--active');
   }
 
-  buttonCart.addEventListener('click', () => {
+  buttonCart.addEventListener('click', (evt) => {
+    evt.preventDefault();
     cartItem.classList.toggle('shopping-cart-active');
     buttonCart.classList.toggle('nav-bar__link--active');
   })
