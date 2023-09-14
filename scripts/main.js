@@ -2,9 +2,9 @@
 const buttonCatalog = document.querySelector('.nav-menu__link-catalog');
 const catalogMenu = document.querySelector('.catalog-menu');
 
-document.addEventListener('mouseup', (e) => {
-  const click = e.composedPath().includes(authorization);
-  if (!click) {
+document.addEventListener('click', (e) => {
+  const block = e.composedPath().includes(catalogMenu);
+  if (!block) {
     catalogMenu.classList.remove('catalog-menu-opened');
     buttonCatalog.classList.remove('nav-menu__link--active');
 
@@ -25,87 +25,76 @@ document.addEventListener('keydown', function (e) {
 })
 
 // поиск
-const searchInput = document.querySelector('.search__input');
-const searchReset = document.querySelector('.search-reset');
-const searchButton = document.querySelector('.nav-bar__button');
-const searchForm = document.querySelector('.search');
+// const searchInput = document.querySelector('.search__input');
+// const searchReset = document.querySelector('.search-reset');
+// const searchButton = document.querySelector('.nav-bar__button');
+// const searchForm = document.querySelector('.search');
 
-searchInput.oninput = function () {
-  if (searchInput.value != 0) {
-    searchReset.classList.add('search-reset-visible');
-  } else { searchReset.classList.remove('search-reset-visible'); }
-};
+// searchInput.oninput = function () {
+//   if (searchInput.value != 0) {
+//     searchReset.classList.add('search-reset-visible');
+//   } else { searchReset.classList.remove('search-reset-visible'); }
+// };
 
-document.addEventListener('mouseup', (e) => {
-  const click = e.composedPath().includes(searchForm);
-  if (!click) {
-    searchForm.classList.remove('search-active');
-    searchButton.classList.remove('nav-bar__button--active');
-  }
+// document.addEventListener('mouseup', (e) => {
+//   const click = e.composedPath().includes(searchForm);
+//   if (!click) {
+//     searchForm.classList.remove('search-active');
+//     searchButton.classList.remove('nav-bar__button--active');
+//   }
 
-  searchButton.addEventListener('click', (evt) => {
-    evt.preventDefault();
-    searchForm.classList.toggle('search-active');
-    searchButton.classList.toggle('nav-bar__button--active');
+//   searchButton.addEventListener('click', (evt) => {
+//     evt.preventDefault();
+//     searchForm.classList.toggle('search-active');
+//     searchButton.classList.toggle('nav-bar__button--active');
+//   })
+// })
+
+// document.addEventListener('keydown', function (e) {
+//   if (e.key === 'Escape') {
+//     searchForm.classList.remove('search-active');
+//     searchButton.classList.remove('nav-bar__button--active');
+
+//   }
+// });
+
+
+let list = Array.from(document.querySelectorAll('.nav-bar__item'));
+
+list.shift(0);
+
+for (let item in list) {
+  let itemChild = list[item].lastElementChild;
+  let btnChild = list[item].firstElementChild;
+
+  btnChild.addEventListener('click', function () {
+    itemChild.classList.toggle('popover-active');
+    btnChild.classList.toggle('nav-bar__link--active');
   })
-})
+}
 
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') {
-    searchForm.classList.remove('search-active');
-    searchButton.classList.remove('nav-bar__button--active');
+    for (let item in list) {
+      let itemChild = list[item].lastElementChild;
+      let btnChild = list[item].firstElementChild;
 
+      itemChild.classList.remove('popover-active');
+      btnChild.classList.remove('nav-bar__link--active');
+    }
   }
-});
-
-// авторизация
-const authorization = document.querySelector('.authorization');
-const buttonLogin = document.querySelector('.nav-bar__link-login');
-
-document.addEventListener('mouseup', (e) => {
-  const click = e.composedPath().includes(authorization);
-  if (!click) {
-    authorization.classList.remove('authorization-active');
-    buttonLogin.classList.remove('nav-bar__link--active');
-  }
-
-  buttonLogin.addEventListener('click', (evt) => {
-    evt.preventDefault();
-    authorization.classList.toggle('authorization-active');
-    buttonLogin.classList.toggle('nav-bar__link--active');
-  })
 })
 
-document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape') {
-    authorization.classList.remove('authorization-active');
-    buttonLogin.classList.remove('nav-bar__link--active');
-  }
-});
-
-// корзина
-const cart = document.querySelector('.cart');
-const cartItem = document.querySelector('.nav-bar__item-cart');
-const buttonCart = document.querySelector('.shopping-cart-btn');
-
 document.addEventListener('mouseup', (e) => {
-  const click = e.composedPath().includes(cart);
-  if (!click) {
-    cartItem.classList.remove('shopping-cart-active');
-    buttonCart.classList.remove('nav-bar__link--active');
-  }
+  for (let item in list) {
+    let itemChild = list[item].lastElementChild;
+    let btnChild = list[item].firstElementChild;
 
-  buttonCart.addEventListener('click', (evt) => {
-    evt.preventDefault();
-    cartItem.classList.toggle('shopping-cart-active');
-    buttonCart.classList.toggle('nav-bar__link--active');
-  })
-})
-
-document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape') {
-    cartItem.classList.remove('shopping-cart-active');
-    buttonCart.classList.remove('nav-bar__link--active');
+    let popover = e.composedPath().includes(itemChild);
+    if (!popover) {
+      itemChild.classList.remove('popover-active');
+      btnChild.classList.remove('nav-bar__link--active');
+    }
   }
 });
 
