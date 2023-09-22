@@ -75,7 +75,7 @@ const page = document.querySelector('.page');
 const prevButton = document.querySelectorAll('.slider-prev');
 const nextButton = document.querySelectorAll('.slider-next');
 const slides = Array.from(slider.querySelectorAll('.slide'));
-const pagination = Array.from(document.querySelectorAll('.slider-pagination__item'));
+const pagination = Array.from(document.querySelectorAll('.slider-pagination__button'));
 const slideCount = slides.length;
 let slideIndex = 0;
 
@@ -86,14 +86,12 @@ function updateSlider() {
       page.style.backgroundColor = document.querySelector('.slide-active').dataset.colors;
 
       for (let i = 0; i < pagination.length; i++) {
-        let paginationBtn = pagination[i].firstElementChild;
         if (i == slideIndex) {
-          paginationBtn.classList.add('slider-pagination-current');
+          pagination[i].classList.add('slider-pagination-current');
         } else {
-          paginationBtn.classList.remove('slider-pagination-current');
+          pagination[i].classList.remove('slider-pagination-current');
         }
       }
-
     } else {
       slide.classList.remove('slide-active');
     }
@@ -110,15 +108,20 @@ function showNextSlide() {
   updateSlider();
 }
 
-// for (const paginationBtn in pagination) {
-//   pagination[paginationBtn].firstElementChild.addEventListener('click', () => {
-//     if (slideIndex == paginationBtn) {
-//       updateSlider()
-//     }
-//   })
-
-// }
-
+for (let pagBtn in pagination) {
+  pagination[pagBtn].addEventListener('click', () => {
+    for (let slide in slides) {
+      if (pagBtn == slide) {
+        slides[slide].classList.add('slide-active');
+        page.style.backgroundColor = document.querySelector('.slide-active').dataset.colors;
+        pagination[slide].classList.add('slider-pagination-current');
+      } else {
+        slides[slide].classList.remove('slide-active');
+        pagination[slide].classList.remove('slider-pagination-current');
+      }
+    }
+  })
+}
 
 for (const prevBtn of prevButton) {
   prevBtn.addEventListener('click', showPreviousSlide);
