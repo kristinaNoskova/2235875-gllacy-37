@@ -2354,7 +2354,7 @@ img {
 }
 
 .filter-button:hover {
-  outline: 2px solidvar(--basic-extra-light-icon);
+  outline: 2px solid var(--basic-extra-light-icon);
   background-color: var(--basic-extra-light);
 }
 
