@@ -779,7 +779,7 @@ img {
   row-gap: 4px;
 }
 
-.link-login {
+.btn-login {
   grid-row: 1 / -1;
   justify-content: center;
   align-self: center;
@@ -1340,7 +1340,6 @@ img {
 
 .promotion-item {
   display: flex;
-  align-items: flex-end;
   width: 570px;
   min-height: 268px;
   border-radius: 16px;
@@ -1359,12 +1358,17 @@ img {
 }
 
 .promotion-descr {
+  flex-grow: 1;
   margin-bottom: 28px;
   color: var(--basic-extra-dark);
 }
 
 .promotion-link {
   max-width: 176px;
+}
+
+.promotion-img {
+  align-self: flex-end;
 }
 
 /* popular */
@@ -2317,6 +2321,11 @@ img {
   opacity: 0.5;
 }
 
+.control__input:focus-visible + .control__mark {
+  outline: 2px solid var(--basic-extra-light);
+  outline-offset: 1px;
+}
+
 .filter-group__list {
   display: flex;
   flex-wrap: wrap;
@@ -2387,6 +2396,7 @@ img {
 
 .pagination-show-more {
   justify-self: end;
+  max-width: 195px;
 }
 
 .pagination {
