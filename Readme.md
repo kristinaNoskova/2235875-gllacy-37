@@ -1,7 +1,7 @@
 # Сайт интернет-магазина «Глейси»
 
-* [Главная](https://kristinanoskova.github.io/2235875-gllacy-37/#).
-* [Каталог](https://kristinanoskova.github.io/2235875-gllacy-37/catalog.html).
+* [Главная](https://kristinanoskova.github.io/2235875-gllacy-37/#)
+* [Каталог](https://kristinanoskova.github.io/2235875-gllacy-37/catalog.html)
 
   
 Реализована десктопная версия сайта.
@@ -9,6 +9,6 @@
 
 ### Как начать использовать?
 1. Склонировать репозиторий
-`git clone https://github.com/kristinaNoskova/2235875-gllacy-37.git`
+```git clone https://github.com/kristinaNoskova/2235875-gllacy-37.git```
 2. Открыть папку в редакторе кода, запустить live server. В проекте используется технология css mask, поэтому, если просто открыть файл index.html  в браузере, не отобразятся иконки
    
