@@ -3,6 +3,7 @@
 * [Главная](https://kristinanoskova.github.io/2235875-gllacy-37/#)
 * [Каталог](https://kristinanoskova.github.io/2235875-gllacy-37/catalog.html)
 
+  ---
   
 * Реализована десктопная версия сайта.
 * Реализован слайдер, поповеры в header, а также модальное окно в блоке форма обратной связи.
